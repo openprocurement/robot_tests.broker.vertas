@@ -183,8 +183,8 @@ Login
   Wait Until Page Contains Element  id=ew_fv_0_value
   Input Text  id=ew_fv_0_value  ${tender_uaid}
   Click Element  id=btnFilter
-  Wait Until Page Contains Element  id=tw_tr_10_title
-  Click Element  id=tw_tr_10_title
+  Wait Until Page Contains Element  id=tw_tr_11_title
+  Click Element  id=tw_tr_11_title
   Wait Until Page Contains Element  xpath=(//*[@id='tPosition_status' and not(contains(@style,'display: none'))])
 
 Перейти до сторінки запитань
@@ -396,8 +396,8 @@ Login
   ${return_value}=  convert_date_to_iso  ${date_value}  ${time_value}
 
 Отримати інформацію про tenderPeriod.startDate
-  ${date_value}=  Get Text  id=tdtpPosition_tenderPeriod_startDate_Date
-  ${time_value}=  Get Text  id=tePosition_tenderPeriod_startDate_Time
+  ${date_value}=  Get Text  id=tPosition_tenderPeriod_startDate_Date
+  ${time_value}=  Get Text  id=tPosition_tenderPeriod_startDate_Time
   ${return_value}=  convert_date_to_iso  ${date_value}  ${time_value}
   [return]  ${return_value}
 
@@ -481,14 +481,12 @@ Login
 
 Подати цінову пропозицію
   [Arguments]  ${username}  ${tender_uaid}  ${bid_data}
-  ${amount}=  get_str  ${bid_data.data.value.amount}
   ${is_qualified}=  is_qualified  ${bid_data}
   ${is_eligible}=  is_eligible  ${bid_data}
   vertas.Пошук тендера по ідентифікатору  ${username}  ${tender_uaid}
   Wait Until Page Contains Element  xpath=(//*[@id='btnBid' and not(contains(@style,'display: none'))]) 
   Click Element  id=btnBid
   Wait Until Page Contains Element  xpath=(//*[@id='bid_load_status' and not(contains(@style,'display: none'))]) 
-  Input Text  id=eBid_price  ${amount}
   Run Keyword If  ${is_qualified}  Click Element  id=lcbBid_selfQualified
   Run Keyword If  ${is_eligible}  Click Element  id=lcbBid_selfEligible
   Click Element  id=btn_save
