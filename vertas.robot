@@ -356,6 +356,11 @@ Login
     ${return_value}=    Convert to number    ${return_value}
     [Return]    ${return_value}
 
+Отримати значення поля items[${index}].quantity тендеру
+    ${return_value}=    Отримати текст    id=items-${index}-quantity
+    ${return_value}=    Convert to number    ${return_value}
+    [Return]    ${return_value}
+
 Отримати інформацію про items[${index}].registrationDetails.status
     ${return_value}=    Отримати текст    id=items-${index}-status
     [Return]    ${return_value}
@@ -883,11 +888,11 @@ Login
     [Return]    ${return_value}
 
 Отримати значення поля items[${index}].unit.name тендеру
-    ${return_value}=    Отримати текст    id=items[${index}].unit_name
+    ${return_value}=    Отримати текст    id=items-${index}-unit_name
     [Return]    ${return_value}
 
 Отримати значення поля items[${index}].description тендеру
-    ${return_value}=    Отримати текст    id=items[${index}].description
+    ${return_value}=    Отримати текст    id=items-${index}-description
     [Return]    ${return_value}
 
 Отримати інформацію із запитання
