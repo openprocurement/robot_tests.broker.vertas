@@ -239,6 +239,10 @@ Login
     ${return_value}=    Отримати текст    id=assetID
     [Return]    ${return_value}
 
+Отримати інформацію щодо лоту про relatedProcesses[0].relatedProcessID
+    ${return_value}=    Отримати текст    id=assetID
+    [Return]    ${return_value}
+
 Отримати інформацію про date
     ${return_value}=    Отримати текст    id=assets-date
     ${return_value}=    convert_date_to_iso    ${return_value}
